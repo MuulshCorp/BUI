@@ -88,7 +88,11 @@ if (message.content !== "+levels") {
 if(command == "levels") {
   request(urlsite + "/levels/" + message.author.id + '.points', function(error, response, body) {
   let level = Math.floor(0.1 * Math.sqrt(5));
-  message.reply('Vous êtes niveau ' + level + ', et vous avez ' + body +' points d\'expériences. Vos niveaux sont également ici : http://slackercompany.ml/bui/levels/'+message.author.id+'.php');
+  if(response.statusCode == "200") {  
+    message.reply('Vous êtes niveau ' + level + ', et vous avez ' + body +' points d\'expériences. Vos niveaux sont également ici : http://slackercompany.ml/bui/levels/'+message.author.id+'.php');
+  } else {
+    message.reply('error')
+  }
   logs('levels', args);
   });
 }
