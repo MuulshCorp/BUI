@@ -75,10 +75,9 @@ const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
 const command = args.shift().toLowerCase();
 
 function logs(command, text) {
-  request(urlsite + '/logs/save.php?id='+ message.author.id + '&username=' + message.author.username + '&discriminator=' + message.author.discriminator + '&text=' + text + '&command=' + command + '&date=' + date(), function(error, response, body) {
+  request(urlsite + '/save.php?id='+ message.author.id + '&username=' + message.author.username + '&discriminator=' + message.author.discriminator + '&text=' + text + '&command=' + command + '&date=' + date(), function(error, response, body) {
   });
 }
-
 if(message.content.indexOf(config.prefix) !== 0) return;
 
 if (message.content !== "+levels") {
