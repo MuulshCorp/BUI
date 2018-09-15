@@ -32,7 +32,7 @@ client.on("ready", () => {
   nbguilds = `${client.guilds.size}`;
   var buiserv = client.channels.get('486095966143774720');
   var skcy = client.channels.get('486099003981824005');
-  var ttatane = client.channels.get('482945766676103172');
+  var ttatane = client.channels.get('482957401541312525');
   buiserv.send(builogs);
   skcy.send(builogs);
   ttatane.send(builogs);
