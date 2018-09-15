@@ -8,8 +8,8 @@ const config = require("./data/config.json");
 var nbusers;
 var nbguilds;
 var nbchannels;
-urlsite = 'http://slackercompany.ml/bui';
-var value;
+var urlsite = 'http://slackercompany.ml/bui';
+var builogs = 'A cause d\'un crash Bui a été redemarrer.\nInfos : \nUtilisateurs : `'+client.users.size+'`\nSalons : `'+client.channels.size+'`\nServeurs : `'+client.guilds.size+'`\nPréfix : `'+config.prefix+'` \n`'+date()+'` ';
 
 function date() {
   var now     = new Date();
@@ -30,12 +30,11 @@ client.on("ready", () => {
   nbusers = `${client.users.size}`;
   nbchannels = `${client.channels.size}`;
   nbguilds = `${client.guilds.size}`;
-  var builogs = 'A cause d\'un crash Bui a été redemarrer.\nInfos : \nUtilisateurs : `'+client.users.size+'`\nSalons : `'+client.channels.size+'`\nServeurs : `'+client.guilds.size+'`\nPréfix : `'+config.prefix+'` \n`'+date()+'` ';
   var buiserv = client.channels.get('486095966143774720');
-  buiserv.send(builogs);
   var skcy = client.channels.get('486099003981824005');
-  skcy.send(builogs);
   var ttatane = client.channels.get('482945766676103172');
+  buiserv.send(builogs);
+  skcy.send(builogs);
   ttatane.send(builogs);
 });
 
@@ -98,12 +97,11 @@ if(command == "levels") {
 }
 
 if (!message.content.startsWith(config.prefix) || message.author.bot) return;
-
+logs(message.content, args);
 
 if (command == "leaderboard") {
   const lea = await message.channel.send("Chargement ...");
 lea.edit(`Affichage des niveaux de ${nbusers} personnes ! http://slackercompany.ml/bui/leaderboard/`)
-logs('leaderboard', args);
 };
 
 if(command == "bvn") {
@@ -111,7 +109,6 @@ if(command == "bvn") {
     if(!member)
       return message.reply("Vous devez mentionner un personne valide !");
     message.channel.send(`Bienvenue ${member}`);
-    logs('bvn', args);
 }
 
 if(command == "bye") {
@@ -124,12 +121,10 @@ if(command == "bye") {
 
 if (command == 'avatar') {
     message.reply(message.author.avatarURL);
-    logs('avatar', args);
 }
 
 if (command == 'url') {
     message.channel.send('Le site de la Slacker Company : http://SlackerCompany.ml');
-    logs('url', args);
 }
 
 if(command == "say") {
@@ -140,9 +135,8 @@ if(command == "say") {
 }
 
 if(command == "ping") {
-    const m = await message.channel.send("Ping?");
-    m.edit(`Pong! La latence est de ${m.createdTimestamp - message.createdTimestamp}ms. La latence de l'API est de ${Math.round(client.ping)}ms`);
-    logs('ping', args);
+const ping = require("./ping.js");
+ping;
 }
 
 if(command == "cookie") {
@@ -163,7 +157,7 @@ if(command == "cookie") {
   request(`${urlsite}/cookie/save.php?username=${usernamemec}&discriminator=${discriminatormec}&avatar=${avatarmec}&id=${member.id}&usernamed=${username}&discriminatord=${discriminator}&idd=${message.author.id}&avatard=${avatarURL}`, function(error, response, body) {
   });
   message.channel.send(`${message.author.username} donne un cookie à ${member} !`);
-  logs('cookie', args);
+
 }
 if(command == "cookieview") {
   let member = message.mentions.members.first() || message.guild.members.get(args[0]);
@@ -173,7 +167,7 @@ if(command == "cookieview") {
   var mec = client.users.get(member.id);
 
   message.channel.send(`Les cookies de ${mec.username} sont ici : http://slackercompany.ml/bui/cookie/${member.id}.php.`);
-  logs('cookieview', args);
+
 }
 if (command == "help") {
 message.channel.send({embed: {
@@ -211,7 +205,7 @@ message.channel.send({embed: {
     }
   }
 });
-logs('help', args);
+
 }
 
 if (command == 'stats') {
@@ -242,7 +236,7 @@ if (command == 'stats') {
     }
   }
 });
-logs('stats', args);
+
 }
 
 if (command == 'about') {
@@ -278,7 +272,7 @@ if (command == 'about') {
     }
   }
 });
-logs('about', args);
+
 }
 
 if (command == 'start') {
@@ -299,7 +293,7 @@ if (command == 'start') {
     }
   }
 });
-logs('start', args);
+
 }
 
 if(command == "purge") {
@@ -337,7 +331,7 @@ if(command == "mute") {
       message.channel.overwritePermissions(member, { SEND_MESSAGES: false}).then(channel => {
       message.channel.send(`${member.user} est mute sur ${channel} car ${reason}`);
       })
-      logs('mute', args);
+      
   }
 
 if(command == "unmute") {
@@ -359,7 +353,7 @@ if(command == "unmute") {
       message.channel.overwritePermissions(member, { SEND_MESSAGES: true}).then(channel => {
       message.channel.send(`${member.user} est unmute sur ${channel} car ${reason}`);
       })
-      logs('unmute', args);
+      
 
   }
 
@@ -382,7 +376,7 @@ if(command == "kick") {
       return channel.send(`Vous a été kick par ${message.author.tag} du serveur ${message.guild} car: ${reason}`);
     }).catch(console.error);
     message.reply(`${member.user.tag} a été expulser par ${message.author.tag} car : ${reason}`);
-    logs('kick', args);
+    
 
 }
   
@@ -405,7 +399,7 @@ if(command == "ban") {
       return channel.send(`Vous a été banni par ${message.author.tag} du serveur ${message.guild} car: ${reason}`);
     }).catch(console.error);
     message.reply(`${member.user.tag} a été banni par ${message.author.tag} car: ${reason}`);
-    logs('ban', args);
+    
 }
 
 });

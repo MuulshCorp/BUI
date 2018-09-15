@@ -10,10 +10,22 @@
     "muulsh"
   ],
   "author": "Muulsh",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
-    "discord.js": "^11.3.2",
+    "bufferutil": "^3.0.3",
+    "discord.js": "^11.4.2",
+    "libsodium-wrappers": "^0.7.3",
+    "node-fetch": "^2.2.0",
     "opusscript": "0.0.6",
     "request": "^2.88.0"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MuulshCorp/bui.git"
+  },
+  "bugs": {
+    "url": "https://github.com/MuulshCorp/bui/issues"
+  },
+  "homepage": "https://github.com/MuulshCorp/bui#readme"
 }
