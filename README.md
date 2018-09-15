@@ -1,7 +1,6 @@
 # BUI
 [Website](http://slackercompany.ml/bui)
 [Discord](https://discord.gg/pqAcH5Q)
-
 ### Les Commandes
 | Commandes        | Description  |
 | ------------- |:-------------:|
