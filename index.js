@@ -300,7 +300,7 @@ if (command == 'start') {
 
 if(command == "purge") {
   if(!message.guild.member(message.author).hasPermission("MANAGE_MESSAGES"))
-      return message.reply('Tu a la permission MANAGE_MESSAGES pour utiliser cette commande ?');
+      return message.reply('Tu a la permission `MANAGE_MESSAGES` pour utiliser cette commande ?');
     
     const deleteCount = parseInt(args[0], 10);
     if(!deleteCount || deleteCount < 1 || deleteCount > 150)
@@ -314,7 +314,7 @@ if(command == "purge") {
 
 if(command == "mute") {
   if(!message.guild.member(message.author).hasPermission("MANAGE_CHANNELS")) 
-      return message.reply("Vous n'avez pas la permission `MANAGE_CHANNELS` !");
+      return message.reply("Vous n'avez pas la permission `MANAGE_CHANNELS` pour utiliser cette commande !");
 
     let member = message.mentions.members.first() || message.guild.members.get(args[0]);
     if(!member)
@@ -338,7 +338,7 @@ if(command == "mute") {
 
 if(command == "unmute") {
   if(!message.guild.member(message.author).hasPermission("MANAGE_CHANNELS")) 
-      return message.reply("Vous n'avez pas la permission `MANAGE_CHANNELS` !");
+      return message.reply("Vous n'avez pas la permission `MANAGE_CHANNELS` pour utiliser cette commande !");
 
     let member = message.mentions.members.first() || message.guild.members.get(args[0]);
     if(!member)
@@ -367,7 +367,7 @@ if(command == "kick") {
     if(!member)
       return message.reply("Vous devez mentionner un personne valide !");
     if(!member.kickable) 
-      return message.reply("Je peut pas expulser cette personne ! J'ai la permission `KICK_MEMBERS` ?");
+      return message.reply("Je peut pas expulser cette personne ! J'ai la permission `KICK_MEMBERS` ? "+member.user.tag+" a un role au dessus de moi ?");
     
     let reason = args.slice(1).join(' ');
     if(!reason) reason = "Aucune raison choisie";
