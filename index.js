@@ -128,6 +128,8 @@ if (command == 'url') {
 }
 
 if(command == "say") {
+  if(!message.guild.member(message.author).hasPermission("MANAGE_CHANNELS")) 
+      return message.reply("Vous n'avez pas la permission `MANAGE_CHANNELS` pour utiliser cette commande !");
     const sayMessage = args.join(" ");
     message.delete().catch(O_o=>{}); 
     message.channel.send(sayMessage);
