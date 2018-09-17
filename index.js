@@ -130,15 +130,8 @@ if (command == 'url') {
 if(command == "say") {
     const sayMessage = args.join(" ");
     message.delete().catch(O_o=>{}); 
-    const mySayEdit = message.channel.send(sayMessage);
+    message.channel.send(sayMessage);
     logs('say', sayMessage);
-}
-
-if(command == "edit") {
-    const sayEdit = args.join(" ");
-    message.delete().catch(O_o=>{}); 
-    mySayEdit.edit(sayEdit);
-    logs('Edit', sayEdit);
 }
 
 if(command == "ping") {
