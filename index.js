@@ -9,7 +9,6 @@ var nbusers;
 var nbguilds;
 var nbchannels;
 var urlsite = 'slackercompany.ml/bui';
-var builogs = 'A cause d\'un crash Bui a été redemarrer.\nInfos : \nUtilisateurs : `'+client.users.size+'`\nSalons : `'+client.channels.size+'`\nServeurs : `'+client.guilds.size+'`\nPréfix : `'+config.prefix+'` \n`'+date()+'` ';
 
 function date() {
   var now     = new Date();
@@ -24,6 +23,7 @@ function date() {
 
 
 client.on("ready", () => {
+  var builogs = 'A cause d\'un crash Bui a été redemarrer.\nInfos : \nUtilisateurs : `'+client.users.size+'`\nSalons : `'+client.channels.size+'`\nServeurs : `'+client.guilds.size+'`\nPréfix : `'+config.prefix+'` \n`'+date()+'` ';
   console.log('BUI IS THE BEST BOT EVER');
   console.log(`Le bot est lancé avec ${client.users.size} utilisateurs, dans ${client.channels.size} salons, de ${client.guilds.size} serveurs. Son préfix est `+config.prefix);
   client.user.setActivity(config.prefix+`help | Aide ${client.guilds.size} serveurs`);
@@ -331,13 +331,11 @@ if(command == "kick") {
     if(!reason) reason = "Aucune raison choisie";
     
     await member.kick(reason)
-      .catch(error => message.reply(`Désolé ${message.author} Je peut pas expulser cette personne car : ${error}`));
+      .catch(error => message.reply(`Désolé ${message.author} Je peut pas expulser cette personne car ${error}`));
     member.createDM().then(channel => {
-      return channel.send(`Vous a été kick par ${message.author.tag} du serveur ${message.guild} car: ${reason}`);
+      return channel.send(`Vous a été kick par ${message.author.tag} du serveur ${message.guild} car ${reason}`);
     }).catch(console.error);
-    message.reply(`${member.user.tag} a été expulser par ${message.author.tag} car : ${reason}`);
-    
-
+    message.reply(`${member.user.tag} a été expulser par ${message.author.tag} car ${reason}`);
 }
   
 if(command == "ban") {
