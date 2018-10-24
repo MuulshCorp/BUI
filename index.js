@@ -87,18 +87,10 @@ if (!message.content.startsWith(config.prefix) || message.author.bot) return;
   let commandfile = client.commands.get(cmd.slice(config.prefix.length));
   if(commandfile) commandfile.run(client,message,args,command,config,fs,request);
 
-if(command == "levels") {
-  message.channel.send('Cette commande n\'est plus disponible..');
+if(command == "levels" || command == "leaderboard" || command == "cookie" || command == "cookieview" || ) {
+  message.channel.send('Cette commande n\'est plus disponible pour le moment...');
 }
-if(command == "leaderboard") {
-  message.channel.send('Cette commande n\'est plus disponible..');
-}
-if(command == "cookie") {
-  message.channel.send('Cette commande n\'est plus disponible..');
-}
-if(command == "cookieview") {
-  message.channel.send('Cette commande n\'est plus disponible..');
-}
+
 
 });
 client.login(token);
