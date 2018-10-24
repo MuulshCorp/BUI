@@ -18,7 +18,4 @@
 | `+ban` 		| Ban une personne |
 | `+mute` 		| Rend muet une personne |
 | `+avatar` 	| Ton avatar en plus grand |
-| `+stats` 		| Les stats du bot |
-| `+bvn` 		| Souhaite la Bienvenue |
-| `+bye` 		| Le message d'Adieu |
 | `+url` 		| Un lien express pour le site de la Slacker Company |
