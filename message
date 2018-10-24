@@ -1,5 +1,0 @@
-if(!message.member.roles.some(r=>["Administrator", "Moderator"].includes(r.name)) )
-  return message.reply("Sorry, you don't have permissions to use this!");
-
-if(!message.guild.member(message.author).hasPermission("MANAGE_CHANNELS")) 
-  return message.reply("Vous n'avez pas la permission `MANAGE_CHANNELS` !");
