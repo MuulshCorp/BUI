@@ -21,8 +21,6 @@ message.channel.send({embed: {
         config.prefix+"mute : Rend muet une personne \n" + 
         config.prefix+"avatar : Ton avatar en plus grand \n" +
         config.prefix+"stats : Les stats du bot \n" +
-        config.prefix+"bvn : Souhaite la Bienvenue\n" +
-        config.prefix+"bye : Le message d'Adieu \n" +
         config.prefix+"url : Un lien express pour le site de la Slacker Company \n"
       }
     ],
