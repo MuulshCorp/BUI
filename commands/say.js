@@ -4,11 +4,7 @@ module.exports.run = async (client, message, args, command, config, fs, request)
 if(command == "say") {
 	const sayMessage = args.join(" ");
     message.delete().catch(O_o=>{});
-	if (message.author.id == "372778933839593483") {
-		return message.channel.send('[Object] [Object]');
-	} else { 
     message.channel.send(sayMessage);
-	}
 }
 //fin
 }
