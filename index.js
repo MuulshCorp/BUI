@@ -91,6 +91,9 @@ if(command == "levels" || command == "leaderboard" || command == "cookie" || com
   message.channel.send('Cette commande n\'est plus disponible pour le moment...');
 }
 
+  if(message.content.startsWith === ":inversed_ok_hand:") {
+    message.channel.send(':point_left:');
+  }
 
 });
 client.login(token);
